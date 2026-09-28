@@ -1,0 +1,15 @@
+# Optional: local PostgreSQL via Docker (alternative to `npm run db:local`)
+#   docker compose up -d
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: dealfinder
+      POSTGRES_PASSWORD: dealfinder
+      POSTGRES_DB: dealfinder
+    ports:
+      - "5433:5432"
+    volumes:
+      - dealfinder-pg:/var/lib/postgresql/data
+volumes:
+  dealfinder-pg:
